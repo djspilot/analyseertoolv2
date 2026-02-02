@@ -1,0 +1,56 @@
+# =============================================================================
+# Raspberry Pi Docker Compose - With Caddy Reverse Proxy
+# =============================================================================
+# Usage: docker compose -f docker-compose.pi.proxy.yml up -d
+
+version: "3.8"
+
+services:
+  analyseertool:
+    build:
+      context: .
+      dockerfile: Dockerfile.pi
+    container_name: analyseertool
+    restart: unless-stopped
+    environment:
+      - ENVIRONMENT=production
+      - RASPBERRY_PI_MODE=true
+      - Z_AI_API_KEY=${Z_AI_API_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./uploaded_files:/app/uploaded_files
+      - ./logs:/app/logs
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.8"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: analyseertool-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - analyseertool
+
+volumes:
+  caddy_data:
+  caddy_config:

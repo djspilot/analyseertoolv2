@@ -1,0 +1,31 @@
+# Flake8 configuration
+# Max line length matches Black's default
+max-line-length = 88
+
+# Error codes to ignore
+extend-ignore = 
+    E203,  # Whitespace before ':' (conflicts with Black)
+    W503,  # Line break before binary operator (conflicts with Black)
+
+# Enable additional checks
+max-complexity = 10
+
+# Docstring conventions
+docstring-convention = google
+
+# Exclude directories
+exclude = 
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    .web,
+    node_modules,
+    build,
+    dist,
+    .eggs,
+    *.egg-info
+
+# Specific rules
+per-file-ignores =
+    __init__.py:F401  # Ignore unused imports in __init__.py files

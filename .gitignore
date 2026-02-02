@@ -1,0 +1,12 @@
+# Old/archived code - hidden from LLMs
+.old/
+
+# Environment variables (contains API keys)
+.env
+
+.states
+__pycache__/
+*.db
+.web
+*.py[cod]
+assets/external/

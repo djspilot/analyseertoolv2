@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend-builder
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./backend:/app/backend
+    environment:
+      - DATABASE_URL=sqlite:///./data/lifestyle.db
+      - API_V1_STR=/api/v1
+      - BACKEND_CORS_ORIGINS=http://localhost:3000
+      - CACHE_TTL_SECONDS=300
+      - DEBUG=False
+    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - redis
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: frontend-builder
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app/frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    command: npm run dev
+    depends_on:
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

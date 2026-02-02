@@ -1,0 +1,20 @@
+{
+  "visible_charts": {
+    "flow_shallow": false,
+    "session_dist": true,
+    "flow_prob": true,
+    "flow_calendar": true,
+    "breakdown": true,
+    "trend": true,
+    "heatmap": true,
+    "hourly": true,
+    "frag": false,
+    "sleep": false,
+    "gantt": true,
+    "comparison_delta": true,
+    "comparison_categories": true
+  },
+  "comparison_enabled": false,
+  "dark_mode": false,
+  "default_period_preset": "Laatste 7 dagen vs 7 dagen daarvoor"
+}

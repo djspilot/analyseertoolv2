@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/.old": true,
+    "**/.states": true,
+    "**/.web": true,
+    "**/.cache": true,
+    "**/__pycache__": true,
+    "**/.DS_Store": true
+  }
+}
