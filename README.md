@@ -34,7 +34,7 @@ A brutalist-style time tracking analysis dashboard for personal productivity opt
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-org/analyseertoolv2.git
+git clone https://github.com/djspilot/analyseertoolv2.git
 cd analyseertoolv2
 ```
 

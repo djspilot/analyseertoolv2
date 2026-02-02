@@ -17,8 +17,8 @@ gh repo create analyseertoolv2 --private --source . --remote origin --push
 git init
 git add .
 git commit -m "Initial commit"
-git remote add origin https://github.com/<user>/<repo>.git
-git push -u origin main
+git remote add origin https://github.com/djspilot/analyseertoolv2.git
+git push -u origin master
 ```
 
-> If your default branch is `master`, replace `main` accordingly.
+✅ **Done!** Repository published at: https://github.com/djspilot/analyseertoolv2

@@ -12,13 +12,13 @@ This project supports two deployment paths on Raspberry Pi:
 From your Pi, run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<user>/<repo>/main/scripts/pi_docker_install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/djspilot/analyseertoolv2/master/scripts/pi_docker_install.sh | bash
 ```
 
 Or clone and run locally:
 
 ```bash
-git clone https://github.com/<user>/<repo>.git
+git clone https://github.com/djspilot/analyseertoolv2.git
 cd analyseertoolv2
 ./scripts/pi_docker_install.sh
 ```

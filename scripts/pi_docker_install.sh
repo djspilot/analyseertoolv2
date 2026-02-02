@@ -3,7 +3,7 @@
 # Raspberry Pi Docker Install Script for Analyseertool
 # =============================================================================
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/<user>/<repo>/main/scripts/pi_docker_install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/djspilot/analyseertoolv2/master/scripts/pi_docker_install.sh | bash
 # Or clone the repo and run:
 #   ./scripts/pi_docker_install.sh
 #
